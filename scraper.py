@@ -108,6 +108,15 @@ for link in links:
         csvMth = title.split(' ')[1][:3]
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, url])
+    if 'WSCC 20' in aTitle:
+        title = link.text
+        url = link['href']
+        if 'http' not in url:
+            url = 'http://www.westsussex.gov.uk'+url
+        csvYr = title.split('WSCC ')[-1][:4]
+        csvMth = 'Y1'
+        csvMth = convert_mth_strings(csvMth.upper())
+        data.append([csvYr, csvMth, url])
 
 #### STORE DATA 1.0
 
