@@ -119,19 +119,15 @@ for link in links:
         data.append([csvYr, csvMth, url])
 
 #### STORE DATA 1.0
-print data
-print len(data)
+
 for row in data:
     csvYr, csvMth, url = row
     filename = entity_id + "_" + csvYr + "_" + csvMth
     todays_date = str(datetime.now())
     file_url = url.strip()
-    print filename, file_url
-        
     valid = validate(filename, file_url)
 
     if valid == True:
-        print file_url
         scraperwiki.sqlite.save(unique_keys=['l'], data={"l": file_url, "f": filename, "d": todays_date })
         print filename
     else:
