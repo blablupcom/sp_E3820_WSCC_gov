@@ -119,6 +119,7 @@ for link in links:
         data.append([csvYr, csvMth, url])
 
 #### STORE DATA 1.0
+print data
 print len(data)
 for row in data:
     csvYr, csvMth, url = row
